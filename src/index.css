@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-syne: 'Syne', sans-serif;
+    --font-anton: 'Anton', sans-serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-playfair: 'Playfair Display', serif;
+    --font-caveat: 'Caveat', cursive;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0d0d0d;
+    color: #ece8e1;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dfceb4;
+  }
+}
+
+.font-anton {
+  font-family: var(--font-anton);
+}
+.font-syne {
+  font-family: var(--font-syne);
+}
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+.font-script {
+  font-family: var(--font-caveat);
+}
+
+/* Rotating badge */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+.animate-spin-slow:hover {
+  animation-duration: 6s;
+}
+
+/* Subtle grain noise overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Hero liquid distortion on hover */
+.liquid-hover {
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.liquid-hover:hover {
+  filter: url('#liquid-filter');
+}
+
+/* Smooth text outline */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(236, 232, 225, 0.35);
+  color: transparent;
+}
+.text-stroke:hover {
+  color: #ece8e1;
+  -webkit-text-stroke: 1px #ece8e1;
+}
