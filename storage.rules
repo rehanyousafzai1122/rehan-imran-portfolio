@@ -1,0 +1,15 @@
+rules_version = '2';
+
+// Paste this into Firebase Console -> Storage -> Rules.
+//
+// Public read (so uploaded photos/video load for every visitor), write
+// restricted to the signed-in admin account.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /portfolio/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+                    && request.resource.size < 25 * 1024 * 1024; // 25MB cap per file
+    }
+  }
+}
